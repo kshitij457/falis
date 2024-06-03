@@ -1,0 +1,80 @@
+<% var count = 0; %>
+<%- include('partials/header.ejs') %>
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb">
+        <div class="bg-breadcrumb-single"></div>
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Search results for: <%= input %></h4>
+            <ol class="breadcrumb justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                
+            </ol>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Services Start -->
+    <div class="container-fluid service py-5">
+        <div class="container py-5">
+            <div class="row g-4 justify-content-center text-center">
+                <% for(var i = 0; i<data.length; i++){ %>
+                    <% if(data[i].Brands.toLowerCase().search(input.toLowerCase()) != -1){ %>                         
+                        <div class="col-md-4 col-lg-4 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="service-item bg-light rounded">
+                                <div class="service-img">
+                                    <% var t = Math.floor((Math.random() * 3) + 1); %>
+                                    <% var tstring = "img/fran" + t + ".jpg" %>
+                                    <img src="<%= tstring %>" style="float: left;
+                                    width:  350px;
+                                    height: 350px;
+                                    object-fit: cover;" class="img-fluid w-90 rounded-top" alt="">
+                                </div>
+                                <div class="service-content text-center p-4">
+                                    <div class="service-content-inner">
+                                        <a href="#" class="h4 mb-4 d-inline-flex text-start"><%= data[i].Brands %></a>
+                                        <p class="mb-4">
+                                            MODEL: <%= data[i].MODEL %>
+                                            CATEGORY: <%= data[i].CATEGORY %>
+                                            SUBCATEGORY: <%= data[i].SUBCATEGORY %>
+                                            INVESTMENT: <%= data[i].INVESTMENT %>
+                                            EXPANSION: <%= data[i].EXPANSION %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% count++ %>
+                     <% } %>
+                <% } %>
+                
+
+                <% if(count > 0){ %>
+                    <p class="center result-count"><%= count %> results found</p>
+                <% } else { %>
+                    <p class="center result-count">No resuts found!</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Services End -->
+
+    <%- include('partials/footer.ejs') %>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

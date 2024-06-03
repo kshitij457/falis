@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>HTML Table</h2>
+
+<table>
+  <tr>
+    <th>_id</th>
+    <th>name</th>
+    <th>email</th>
+    <th>phone</th>
+    <th>project</th>
+    <th>subject</th>
+    <th>message</th>
+  </tr>
+  <% for(var i = 0; i<contacts.length; i++){ %>
+    <tr>
+        <td><%= contacts[i]._id %></td>
+        <td><%= contacts[i].name %></td>
+        <td><%= contacts[i].email %></td>
+        <td><%= contacts[i].phone %></td>
+        <td><%= contacts[i].project %></td>
+        <td><%= contacts[i].subject %></td>
+        <td><%= contacts[i].message %></td>
+    </tr>
+  <% } %>
+</table>
+
+</body>
+</html>
+

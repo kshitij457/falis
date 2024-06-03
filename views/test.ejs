@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Franchise Table</h2>
+
+<table>
+
+    <!-- "S.No.": 1,
+         "Brands": "Regus",
+         "MODEL": "FoCO",
+         "CATEGORY": "Co Working",
+         "SUB CATEGORY": "Co Working",
+         "SIZE": "5000 sq ft to 10000 sq ft",
+         "INVESTMENT": "2.50 cr onwards",
+         "EXPANSION": "Pan India" -->
+  <tr>
+    <th>SNO</th>
+    <th>Brands</th>
+    <th>MODEL</th>
+    <th>CATEGORY</th>
+    <th>SUBCATEGORY</th>
+    <th>SIZE</th>
+    <th>INVESTMENT</th>
+    <th>EXPANSION</th>
+  </tr>
+  <% for(var i = 0; i<data.length; i++){ %>
+    <tr>
+        <td><%= data[i].SNO %></td>
+        <td><%= data[i].Brands %></td>
+        <td><%= data[i].MODEL %></td>
+        <td><%= data[i].CATEGORY %></td>
+        <td><%= data[i].SUBCATEGORY %></td>
+        <td><%= data[i].SIZE %></td>
+        <td><%= data[i].INVESTMENT %></td>
+        <td><%= data[i].EXPANSION %></td>
+    </tr>
+  <% } %>
+</table>
+
+</body>
+</html>
+
